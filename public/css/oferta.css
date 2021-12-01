@@ -1,0 +1,49 @@
+
+.oferta-portada{
+    text-align: center;
+    height: 85vh;
+    overflow: hidden;
+}
+
+.img-fluid-center{
+    width: 100%;
+    margin-top: 2.5rem;
+}
+
+.row-productos{
+    margin-top: 9rem;
+}
+
+.grid{
+    display: flex;
+    align-items: center;
+     width: 100%;
+     height: 100vh;
+     margin: auto;
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     justify-content: center;
+}
+
+.imagen-oferta{
+    display: inline-block;
+    height: 90%;
+    width: 70%;
+    text-align: right;
+}
+
+.text-ofer{
+    text-align: center;
+}
+
+/* input */
+#marca{
+    padding: 7px;
+}
+
+button.enviar{
+    padding: 8px;
+    background: whitesmoke;
+    border: 1px solid black;
+    cursor: pointer;
+}

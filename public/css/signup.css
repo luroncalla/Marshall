@@ -1,0 +1,46 @@
+body{
+    background-image: url(/img/fondo.jpg);
+    background-position:center top;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* -- Para centrar el form -- */
+.signup-form{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+/* -- Formulario -- */
+.card-header{
+    background-color: white;
+}
+
+.card{
+    border: none;
+    background-color: white;
+}
+
+.form-control{
+    background-color: white;
+}
+
+.form-group{
+    margin-top: 1.5rem;
+}
+
+.form-group2{
+    margin-top: 2rem;
+}
+
+/* -- Botón -- */
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    background-color: rgb(36, 33, 39);
+    border: none;
+    height: 35px;
+}
+
+.mt-4, .my-4 {
+    margin-top: 2.5rem!important;
+}

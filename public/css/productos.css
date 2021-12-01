@@ -1,0 +1,41 @@
+.container-fluid{
+    text-align: center;
+    height: 85vh;
+    overflow: hidden;
+}
+
+.img-fluid-center{
+    width: 100%;
+    margin-top: 2.5rem;
+}
+
+.row-productos{
+    margin-top: 9rem;
+}
+
+/* Footer */
+.page-footer{
+    margin-top: 8rem;
+    border-top: 1px solid rgb(0, 0, 0);
+    background-color: rgb(255, 245, 232);
+}
+a{
+    color: rgb(42, 79, 160);
+    display: block;
+    text-align: center;
+}
+
+.btn-black{
+    color:#fff;
+    text-decoration: none;
+}
+.a-footer{
+    color: black;
+}
+.boton{
+    display: block;
+    margin: 3rem auto;
+    width: 50%;
+    background-color: rgb(202, 121, 146);
+    border: 1px solid rgb(214, 135, 159);
+}
