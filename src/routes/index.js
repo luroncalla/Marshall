@@ -3,6 +3,9 @@ const { Router } = require('express');
 const express = require('express');
 const router = express.Router(); //AQUÍ DEFINIMOS LAS RUTAS DE NUESTRO SERVIDOR
 
+const Collection = require('mongodb/lib/collection');
+const client = require('../database')();//traemos la funcion que hemos exportado, el que llame a conect va a tener esa funcion
+
 const passport = require('passport');
 
 router.get('/', (req, res, next) => { //RUTA INICIAL //MANEJADOR DE PETICIONES 
@@ -51,6 +54,53 @@ router.get('/logout', (req, res, next) => {
 //      isAuthenticated(req, res, next);
 //      next();
 //});
+
+
+
+
+
+
+router.post('/ofertas', (req,res) =>{ //trae la info desde el mongodb hasta nuestro controlador
+    client.connect(async (err) =>{ //conexión a la base de datos
+        if (!err){ //preguntamos si existe un error en la conexión
+            const collection = client.db("test").collection("caracteristicas")
+            collection.find().toArray((err, result) =>{ //trae los datos con find y lo transforma a un array
+                if(!err){ //Preguntamos si existe un error en la transformación
+                    res.render('ofertas',{datos:result}) //le anexo datos al render a la pag listar alumnos
+                }else{
+                    res.send("'resultado':[{'respuesta':'Error al traer la data'},{'mensaje':"+err+"}]")
+                }
+            })
+        }else{
+            res.send("resultado:[{'respuesta':'Error al cargar'},{'mensaje':"+err+"}]")
+        }
+    })
+})
+
+
+
+router.post('/caracteristicas', (req,res) =>{ //trae la info desde el mongodb hasta nuestro controlador
+    var nombreLocal = req.body.marca;
+    client.connect(async (err) =>{ //conexión a la base de datos
+        if (!err){ //preguntamos si existe un error en la conexión
+            const collection = client.db("test").collection("caracteristicas")
+            collection.find({marca:{$eq:nombreLocal}}).toArray((err, result) =>{ //trae los datos con find y lo transforma a un array
+                if(!err){ //Preguntamos si existe un error en la transformación
+                    res.render('ofertas',{datos:result}) //le anexo datos al render a la pag ofertas
+                }else{
+                    res.send("'resultado':[{'respuesta':'Error al traer la data'},{'mensaje':"+err+"}]")
+                }
+            })
+            
+        }else{
+            res.send("resultado:[{'respuesta':'Error al cargar'},{'mensaje':"+err+"}]")
+        }
+    })
+})
+
+
+
+
 
 router.get('/compra', isAuthenticated, (req, res, next) => { //IS AUTHENTICATED ES PARA VER SI CUANDO EL USER ENTRA A PROFILE, SE VA EJECUTAR LA FUNCION IS AUTHENTICATED PARA VER SI ESTÁ AUTENTICADO O NOP
     res.render('compra');
