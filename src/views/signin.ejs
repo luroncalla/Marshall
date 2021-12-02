@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,33 +9,36 @@
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
     <title>Login</title>
 </head>
+
 <body>
     <%- layout('layouts/main.ejs') %>
 
-    <div class="row signup-form">
-        <div class="col-md-4 offset-md-4">
-            <div class="card mt-4 text-center">
-                <div class="card-header">
-                    <h3>Inicia Sesión</h3>
-                </div>
-                <div class="card-body">
-                    <form action="/signin" method="POST">
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Insertar email" class="form-control">
-                        </div>
-                        <div class="form-group2">
-                            <input type="password" name="password" placeholder="Insertar contraseña" class="form-control">
-                        </div>
-                        <button type="submit" class="brn btn-primary btn-block mt-4">
-                            Login
-                        </button><br>
-                        <p><a href="/signup">No tengo una cuenta</a></p>
-                    </form>
+        <div class="row signup-form">
+            <div class="col-md-4 offset-md-4">
+                <div class="card mt-4 text-center">
+                    <div class="card-header">
+                        <h3>Inicia Sesión</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/signin" method="POST">
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Insertar email" class="form-control">
+                            </div>
+                            <div class="form-group2">
+                                <input type="password" name="password" placeholder="Insertar contraseña"
+                                    class="form-control">
+                            </div>
+                            <button type="submit" class="brn btn-primary btn-block mt-4">
+                                Login
+                            </button><br>
+                            <p><a href="/signup">No tengo una cuenta</a></p>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 </body>
+
 </html>

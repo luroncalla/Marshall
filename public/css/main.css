@@ -13,7 +13,7 @@ nav.navbar{
     height: 6rem;
 }
 
-/* Pago */
+/*----Pago ----*/
 .body{
     text-align: center;
 }
@@ -26,6 +26,8 @@ nav.navbar{
     text-decoration: none;
     color: rgb(36, 18, 18);
 }
+/* -------- */
+
 
 @media (min-width: 1460px){
 .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {

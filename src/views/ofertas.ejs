@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,85 +9,90 @@
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
     <title>Ofertas</title>
 </head>
+
 <body>
-    
+
     <%- layout('layouts/main.ejs') %>
 
-    <div class="container-fluid oferta-portada">
-        <img src="/img/sale.jpg" class="img-fluid-center" alt="Chica">
-    </div>
-
-    <!-- Ofertas -->
-
-    <div class="grid" id="cuero">
-        <div class="g-col-6 img-ofer-con">
-            <img src="/img/cuero.jpg" class="img-thumbnail imagen-oferta" alt="...">
+        <div class="container-fluid oferta-portada">
+            <img src="/img/sale.jpg" class="img-fluid-center" alt="Chica">
         </div>
-        <div class="g-col-6 text-ofer">
-            <h2>Casaca de Cuero Versace</h2>
-            <a href="/compra">Comprar Ahora</a>
-            <p><b>Marcas Disponibles:</b> Pardo / Gucci / Ray-Ban / Linio</p>
-            <p>Ingrese la marca en la que está interesado...</p>
 
-            <form action="/caracteristicas" method="post"> <!--  //se va a lista alunos que esta expuesto en el metodo post -->
-                <input type="text" placeholder="Ingrese una marca..." id="marca" name="marca">
-                <button class="enviar" type="submit">Buscar</button>
-            </form><br>
+        <!-- Ofertas -->
 
-            <% if(typeof datos !== 'undefined') { %>
-                <% for(index in datos){ %>
-                <!-- <li class="resultado__datos"><%= datos[index].marca %> - <%= datos[index].precio %></li> -->
-                <li class="resultado__datos">Marca: <%= datos[index].marca %>%></li>
-                <li class="resultado__datos">Precio: <%= datos[index].precio %></li>
-                <li class="resultado__datos">Descuento actual: <%= datos[index].oferta %></li>
-                <li class="resultado__datos">Colores Disponibles: <%= datos[index].colores %></li>
+        <div class="grid" id="cuero">
+            <div class="g-col-6 img-ofer-con">
+                <img src="/img/cuero.jpg" class="img-thumbnail imagen-oferta" alt="...">
+            </div>
+            <div class="g-col-6 text-ofer">
+                <h2>Casaca de Cuero Versace</h2>
+                <a href="/compra">Comprar Ahora</a>
+                <p><b>Marcas Disponibles:</b> Pardo / Gucci / Ray-Ban / Linio</p>
+                <p>Ingrese la marca en la que está interesado...</p>
 
-                <% } %>
-               
-            <% } %>
+                <form action="/caracteristicas" method="post">
+                    <!--  //se va a lista alunos que esta expuesto en el metodo post -->
+                    <input type="text" placeholder="Ingrese una marca..." id="marca" name="marca">
+                    <button class="enviar" type="submit">Buscar</button>
+                </form><br>
 
+                <% if(typeof datos !=='undefined' ) { %>
+                    <% for(index in datos){ %>
+                        
+                        <li class="resultado__datos">Marca: <%= datos[index].marca %>%></li>
+                        <li class="resultado__datos">Precio: <%= datos[index].precio %>
+                        </li>
+                        <li class="resultado__datos">Descuento actual: <%= datos[index].oferta %>
+                        </li>
+                        <li class="resultado__datos">Colores Disponibles: <%= datos[index].colores %>
+                        </li>
+
+                        <% } %>
+
+                            <% } %>
+            </div>
+        </div>
+
+
+        <div class="grid">
+            <div class="g-col-6 img-ofer-con">
+                <img src="/img/m2.jpeg" class="img-thumbnail imagen-oferta" alt="...">
+            </div>
+            <div class="g-col-6 text-ofer">
+                <h2>Gafas de sol DV #DVDELUXE</h2>
+                <a href="/compra">Comprar Ahora</a>
+                <p><b>Marcas Disponibles:</b> Oakley / Gucci / Ray-Ban / BVLGARI</p>
+                <p>Ingrese la marca en la que está interesado...</p>
+
+                <form action="/caracteristicas" method="post">
+                    <!--  //se va a lista alunos que esta expuesto en el metodo post -->
+                    <input type="text" placeholder="Ingrese una marca..." id="marca" name="marca">
+                    <button class="enviar" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="g-col-6 img-ofer-con">
+                <img src="/img/m1.jpeg" class="img-thumbnail imagen-oferta" alt="...">
+            </div>
+            <div class="g-col-6 text-ofer">
+                <h2>Estilo Urbano</h2>
+                <a href="/compra">Comprar Ahora</a>
+                <p><b>Marcas Disponibles:</b> H&M / Nike / Adidas / Supreme</p>
+                <p>Ingrese la marca en la que está interesado...</p>
+
+                <form action="/caracteristicas" method="post">
+                    <!--  //se va a lista alunos que esta expuesto en el metodo post -->
+                    <input type="text" placeholder="Ingrese una marca..." id="marca" name="marca">
+                    <button class="enviar" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
 
 
 
         </div>
-      </div>
-
-      <div class="grid">
-        <div class="g-col-6 img-ofer-con">
-            <img src="/img/m2.jpeg" class="img-thumbnail imagen-oferta" alt="...">
-        </div>
-        <div class="g-col-6 text-ofer">
-            <h2>Gafas de sol DV #DVDELUXE</h2>
-            <a href="/compra">Comprar Ahora</a>
-            <p><b>Marcas Disponibles:</b> Oakley / Gucci / Ray-Ban / BVLGARI</p>
-            <p>Ingrese la marca en la que está interesado...</p>
-
-            <form action="/caracteristicas" method="post"> <!--  //se va a lista alunos que esta expuesto en el metodo post -->
-                <input type="text" placeholder="Ingrese una marca..." id="marca" name="marca">
-                <button class="enviar" type="submit">Buscar</button>
-            </form>
-        </div>
-      </div>
-
-      <div class="grid">
-        <div class="g-col-6 img-ofer-con">
-            <img src="/img/m1.jpeg" class="img-thumbnail imagen-oferta" alt="...">
-        </div>
-        <div class="g-col-6 text-ofer">
-            <h2>Estilo Urbano</h2>
-            <a href="/compra">Comprar Ahora</a>
-            <p><b>Marcas Disponibles:</b> H&M / Nike / Adidas / Supreme</p>
-            <p>Ingrese la marca en la que está interesado...</p>
-
-            <form action="/caracteristicas" method="post"> <!--  //se va a lista alunos que esta expuesto en el metodo post -->
-                <input type="text" placeholder="Ingrese una marca..." id="marca" name="marca">
-                <button class="enviar" type="submit">Buscar</button>
-            </form>
-        </div>
-      </div>
-      
-
-    
-</div>
 </body>
+
 </html>

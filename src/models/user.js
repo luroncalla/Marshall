@@ -1,4 +1,4 @@
-//AQUÍ DEFINIMOS EL ESQUEMA
+// ---- AQUÍ DEFINIMOS EL ESQUEMA ----
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
 const { Schema } = mongoose;
@@ -8,12 +8,13 @@ const userSchema = new Schema({
     password: String
 });
 
-//ENCRIPTA LA CONTRASEÑA
-userSchema.methods.encryptPassword = (password) =>{
+
+// ---- ENCRIPTA LA CONTRASEÑA ----
+userSchema.methods.encryptPassword = (password) => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 };
 
-//CONTRASEÑA PARA COMPARAR, SI LO ENCUENTRA EN LA BASE DE DATOS
+// ---- CONTRASEÑA PARA COMPARAR, VEMOS SI LO ENCUENTRA EN LA B.D ----
 userSchema.methods.comparePassword = function (password) {
     return bcrypt.compareSync(password, this.password);
 };

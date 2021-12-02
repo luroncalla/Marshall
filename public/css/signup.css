@@ -5,14 +5,15 @@ body{
     height: 100vh;
 }
 
-/* -- Para centrar el form -- */
+/* ---- Para centrar el formulario ---- */
 .signup-form{
     height: 80vh;
     display: flex;
     align-items: center;
 }
+/* -------- */
 
-/* -- Formulario -- */
+/* ---- Formulario ---- */
 .card-header{
     background-color: white;
 }
@@ -33,8 +34,9 @@ body{
 .form-group2{
     margin-top: 2rem;
 }
+/* -------- */
 
-/* -- Botón -- */
+/* ---- Botón ---- */
 [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
     background-color: rgb(36, 33, 39);
     border: none;
@@ -44,3 +46,4 @@ body{
 .mt-4, .my-4 {
     margin-top: 2.5rem!important;
 }
+/* -------- */

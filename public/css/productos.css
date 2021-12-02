@@ -13,7 +13,7 @@
     margin-top: 9rem;
 }
 
-/* Footer */
+/* ---- Footer ---- */
 .page-footer{
     margin-top: 8rem;
     border-top: 1px solid rgb(0, 0, 0);
@@ -29,9 +29,11 @@ a{
     color:#fff;
     text-decoration: none;
 }
+
 .a-footer{
     color: black;
 }
+
 .boton{
     display: block;
     margin: 3rem auto;
@@ -39,3 +41,4 @@ a{
     background-color: rgb(202, 121, 146);
     border: 1px solid rgb(214, 135, 159);
 }
+/* -------- */

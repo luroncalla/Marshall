@@ -2,11 +2,12 @@
     margin-top: 17px;
 }
 
-.card-productos{
-    margin-bottom: 8rem;
-}
 .slide .imagen{
     height: 85vh;
+}
+
+.card-productos{
+    margin-bottom: 8rem;
 }
 
 .peque{
@@ -19,12 +20,14 @@
     margin-top: 11rem;
     font-size: 3.5rem;
 }
+
 .parrafo{
     font-size: 1.7rem;
     margin-bottom: 7rem;
 }
 
-/* Footer */
+
+/* ---- Footer ---- */
 .page-footer{
     margin-top: 8rem;
     border-top: 1px solid black;
@@ -39,3 +42,4 @@ a{
     background-color: rgb(201, 103, 132);
     border: 1px solid rgb(187, 113, 135);
 }
+/* -------- */

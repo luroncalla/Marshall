@@ -16,13 +16,14 @@
         <h1 class="text-center mt-5">Hola!</h1>
         <h3 class="text-center mt-5">Realiza tu compra de manera totalmente segura aquí</h3>
         <h5 class="text-center mt-5"> ¡Gracias por elegirnos!</h5>
-        <button type="button" class="btn btn-outline-secondary mt-4"><a href="/ofertas">¿Ya viste lo que puedes comprar con nuestros descuentos?</a></button>
-        
+        <button type="button" class="btn btn-outline-secondary mt-4"><a href="/ofertas">¿Ya viste lo que puedes comprar
+                con nuestros descuentos?</a></button>
 
-            <div class="boton-pago">
-                <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
-            </div>
-        
+
+        <div class="boton-pago">
+            <script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+        </div>
+
         <script>
             paypal.Buttons({
                 createOrder: function (data, actions) {
