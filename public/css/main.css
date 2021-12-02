@@ -1,7 +1,8 @@
-.navbar-brand{
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Merienda&family=Raleway:wght@200;700&display=swap');.navbar-brand{
     font-size: 2.2rem;
     margin-right: 5rem;
     padding: 0;
+    font-family: 'Merienda', cursive;
 }
 
 nav.navbar{
