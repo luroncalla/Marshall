@@ -102,7 +102,7 @@ router.post('/caracteristicas', (req,res) =>{ //trae la info desde el mongodb ha
 
 
 
-router.get('/compra', isAuthenticated, (req, res, next) => { //IS AUTHENTICATED ES PARA VER SI CUANDO EL USER ENTRA A PROFILE, SE VA EJECUTAR LA FUNCION IS AUTHENTICATED PARA VER SI ESTÁ AUTENTICADO O NOP
+router.get('/compra', isAuthenticated, (req, res, next) => { //IS AUTHENTICATED ES PARA VER SI CUANDO EL USUARIO ENTRA A PROFILE, SE VA EJECUTAR LA FUNCION IS AUTHENTICATED PARA VER SI ESTÁ AUTENTICADO O NOP
     res.render('compra');
 });
 
