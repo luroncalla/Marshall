@@ -1,45 +1,50 @@
-.slide{
-    margin-top: 17px;
-}
+@media (min-width: 1460px){
+    
+    .slide{
+        margin-top: 17px;
+    }
+    
+    .slide .imagen{
+        height: 85vh;
+    }
+    
+    .card-productos{
+        margin-bottom: 8rem;
+    }
+    
+    .peque{
+        width: 330px;
+        height: 330px;
+    }
+    
+    .titulo{
+        margin: 4rem;
+        margin-top: 11rem;
+        font-size: 3.5rem;
+    }
+    
+    .parrafo{
+        font-size: 1.7rem;
+        margin-bottom: 7rem;
+    }
+    
+    
+    /* ---- Footer ---- */
+    .page-footer{
+        margin-top: 8rem;
+        border-top: 1px solid black;
+        background-color: rgb(255, 245, 232);
+    }
+    
+    a{
+        color: black;
+    }
+    
+    .btn{
+        background-color: rgb(201, 103, 132);
+        border: 1px solid rgb(187, 113, 135);
+    }
+    /* -------- */
+    
+    }
 
-.slide .imagen{
-    height: 85vh;
-}
-
-.card-productos{
-    margin-bottom: 8rem;
-}
-
-.peque{
-    width: 330px;
-    height: 330px;
-}
-
-.titulo{
-    margin: 4rem;
-    margin-top: 11rem;
-    font-size: 3.5rem;
-}
-
-.parrafo{
-    font-size: 1.7rem;
-    margin-bottom: 7rem;
-}
-
-
-/* ---- Footer ---- */
-.page-footer{
-    margin-top: 8rem;
-    border-top: 1px solid black;
-    background-color: rgb(255, 245, 232);
-}
-
-a{
-    color: black;
-}
-
-.btn{
-    background-color: rgb(201, 103, 132);
-    border: 1px solid rgb(187, 113, 135);
-}
-/* -------- */

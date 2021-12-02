@@ -1,3 +1,5 @@
+@media (min-width: 1460px){
+
 .container-fluid{
     text-align: center;
     height: 85vh;
@@ -40,5 +42,6 @@ a{
     width: 50%;
     background-color: rgb(202, 121, 146);
     border: 1px solid rgb(214, 135, 159);
+}
 }
 /* -------- */

@@ -1,36 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Merienda&family=Raleway:wght@200;700&display=swap');.navbar-brand{
-    font-size: 2.2rem;
-    margin-right: 5rem;
-    padding: 0;
-    font-family: 'Merienda', cursive;
-}
-
-nav.navbar{
-    font-size: 1.3rem;
-    background-color: rgb(241, 235, 227) !important
-}
-
-.navbar{
-    height: 6rem;
-}
-
-/*----Pago ----*/
-.body{
-    text-align: center;
-}
-
-.boton-pago{
-    height: 15vh;
-}
-
-.btn-outline-secondary a{
-    text-decoration: none;
-    color: rgb(36, 18, 18);
-}
-/* -------- */
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Merienda&family=Raleway:wght@200;700&display=swap');
 
 
 @media (min-width: 1460px){
-.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-    max-width: 1320px;
-}}
+    
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1320px;
+    }
+
+    .navbar-brand{
+        font-size: 2.2rem;
+        margin-right: 5rem;
+        padding: 0;
+        font-family: 'Merienda', cursive;
+    }
+    
+    nav.navbar{
+        font-size: 1.3rem;
+        background-color: rgb(241, 235, 227) !important
+    }
+    
+    .navbar{
+        height: 6rem;
+    }
+    
+    /*----Pago ----*/
+    .body{
+        text-align: center;
+    }
+    
+    .boton-pago{
+        height: 15vh;
+    }
+    
+    .btn-outline-secondary a{
+        text-decoration: none;
+        color: rgb(36, 18, 18);
+    }
+    /* -------- */
+}    
+

@@ -1,3 +1,5 @@
+@media (min-width: 1460px){
+
 body{
     background-image: url(/img/fondo.jpg);
     background-position:center top;
@@ -45,5 +47,6 @@ body{
 
 .mt-4, .my-4 {
     margin-top: 2.5rem!important;
+}
 }
 /* -------- */
