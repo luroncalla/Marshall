@@ -9,22 +9,6 @@ mongoose.connect(mongodb.URI, { useNewUrlParser: true })
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //PRUEBA DE BASE DE DATOS PARA CARACTERÍSTICAS
 
 const MongoClient = require('mongodb').MongoClient //TRAEMOS LIBRERIA PARA CONEXION

@@ -2,9 +2,15 @@
 const { Router } = require('express');
 const express = require('express');
 const router = express.Router(); // ---- DEFINIMOS LAS RUTAS DE NUESTRO SERVIDOR ----
-
 const Collection = require('mongodb/lib/collection');
+const { applyRetryableWrites } = require('mongodb/lib/utils');
 const client = require('../database')();// ---- TRAEMOS LA FUNCIÓN QUE HEMOS EXPORTADO, EL QUE LLAME A CONNECT OBTENDRÁ ESA FUNCIÓN ----
+// const bodyParser = require("body-parser");
+
+// const app = express();
+
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
 const passport = require('passport');
 
@@ -16,10 +22,9 @@ router.get('/', (req, res, next) => { // ----- RUTA INICIAL //MANEJADOR DE PETIC
 router.get('/signup', (req, res, next) => { // ---- CON EL ROUTER.GET LE ENVIAMOS UNA VENTANA DONDE EL USUARIO VA A INSERTAR SUS DATOS ----
     res.render('signup');
 });
+// --------------------this
 
-router.get('/productos', (req, res, next) => {
-    res.render('productos');
-});
+
 
 router.get('/ofertas', (req, res, next) => {
     res.render('ofertas');
@@ -96,9 +101,6 @@ router.post('/caracteristicas', (req, res) => {  // ---- Trae la info desde el m
 })
 
 
-
-
-
 router.get('/compra', isAuthenticated, (req, res, next) => {  // ---- IS AUTHENTICATED ES PARA VER SI CUANDO EL USUARIO ENTRA A PROFILE, SE VA EJECUTAR LA FUNCION IS AUTHENTICATED PARA VER SI ESTÁ AUTENTICADO O NOP ----
     res.render('compra');
 });
@@ -110,5 +112,71 @@ function isAuthenticated(req, res, next) {
     }
     res.redirect('/signin');  // ----CASO CONTRARIO QUE ME REDIRECCIONE A LA PG. PRINCIPAL ----
 };
+
+
+
+// ---- TRAER LOS PRODUCTOS DESDE EL BACK-END ----
+
+// const products = [
+
+//     {
+//         id: 1,
+//         name: "Gafas Ray-Ban",
+//         price: 150,
+//         image: "/img/lentes.jpg",
+//         stock: 50
+//     },
+//     {
+//         id: 2,
+//         name: "Blusa Channel",
+//         price: 210,
+//         image: "/img/blusa.jpg",
+//         stock: 50
+//     },
+//     {
+//         id: 3,
+//         name: "Conjunto Oversize Widarly",
+//         price: 276,
+//         image: "/img/oversize.jpg",
+//         stock: 50
+//     },
+//     {
+//         id: 4,
+//         name: "Converse White Adidas",
+//         price: 300,
+//         image: "/img/converse.jpg",
+//         stock: 50
+//     },
+//     {
+//         id: 5,
+//         name: "Pantalon a cuadros Gucci",
+//         price: 255,
+//         image: "/img/pantalon.jpg",
+//         stock: 50
+//     },
+//     {
+//         id: 6,
+//         name: "Sombreo Negro Gucci",
+//         price: 120,
+//         image: "/img/sombrero.jpg",
+//         stock: 50
+//     },
+
+// ];
+
+// router.get('/productos', (req, res, next) => {
+//     res.render('productos');
+//   });
+
+
+// router.get('/api/productos', (req, res, next) => {
+//     res.send(products);
+// });
+
+// router.post('/api/pay', (req, res) => {
+//     console.log(req.body);
+//     res.send(products);
+// });
+
 
 module.exports = router;

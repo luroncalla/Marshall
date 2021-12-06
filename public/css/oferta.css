@@ -1,11 +1,5 @@
 @media (min-width: 1460px){
 
-.oferta-portada{
-    text-align: center;
-    height: 85vh;
-    overflow: hidden;
-}
-
 .img-fluid-center{
     width: 100%;
     margin-top: 2.5rem;
@@ -33,10 +27,6 @@
     text-align: right;
 }
 
-.text-ofer{
-    text-align: center;
-}
-
 /*---- Input ----*/
 #marca{
     padding: 7px;
@@ -47,6 +37,6 @@ button.enviar{
     background: whitesmoke;
     border: 1px solid black;
     cursor: pointer;
-}
+} 
 }
 /* ---- */

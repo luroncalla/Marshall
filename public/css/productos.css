@@ -1,4 +1,7 @@
-@media (min-width: 1460px){
+.img-fluid{
+    max-width: 100%;
+height: auto;}
+/* @media (min-width: 1460px){
 
 .container-fluid{
     text-align: center;
@@ -21,6 +24,7 @@
     border-top: 1px solid rgb(0, 0, 0);
     background-color: rgb(255, 245, 232);
 }
+/* 
 a{
     color: rgb(42, 79, 160);
     display: block;
@@ -31,7 +35,7 @@ a{
     color:#fff;
     text-decoration: none;
 }
-
+*/
 .a-footer{
     color: black;
 }
@@ -40,8 +44,16 @@ a{
     display: block;
     margin: 3rem auto;
     width: 50%;
-    background-color: rgb(202, 121, 146);
-    border: 1px solid rgb(214, 135, 159);
+    background-color: rgb(126, 49, 91);
+    border:none;
+} 
+.boton a{
+    color: white;
+    text-decoration: none;
 }
+
+.botonadd.disabled{
+    background-color: rgb(255, 245, 232);
+    color: black;
+    
 }
-/* -------- */

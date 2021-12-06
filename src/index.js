@@ -6,9 +6,16 @@ const morgan = require('morgan');
 const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
+const { applyRetryableWrites } = require('mongodb/lib/utils');
+const bodyParser = require("body-parser");
+
+const app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // ---- INICIALIZACIONES ----
-const app = express();
+
 require('./database');
 require('./passport/local-auth');
 
@@ -52,3 +59,79 @@ app.use(express.static('public'))
 app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/js', express.static(__dirname + 'public/js'))
 app.use('/img', express.static(__dirname + 'public/img'))
+
+// ---- PRODUCTOS -----
+
+let products = [
+
+    {
+        id: 1,
+        name: "Gafas Ray-Ban",
+        price: 150,
+        image: "/img/lentes.jpg",
+        stock: 50
+    },
+    {
+        id: 2,
+        name: "Blusa Channel",
+        price: 210,
+        image: "/img/blusa.jpg",
+        stock: 50
+    },
+    {
+        id: 3,
+        name: "Conjunto Oversize Widarly",
+        price: 276,
+        image: "/img/oversize.jpg",
+        stock: 50
+    },
+    {
+        id: 4,
+        name: "Converse White Adidas",
+        price: 300,
+        image: "/img/converse.jpg",
+        stock: 50
+    },
+    {
+        id: 5,
+        name: "Pantalon a cuadros Gucci",
+        price: 255,
+        image: "/img/pantalon.jpg",
+        stock: 50
+    },
+    {
+        id: 6,
+        name: "Sombreo Negro Gucci",
+        price: 120,
+        image: "/img/sombrero.jpg",
+        stock: 50
+    },
+
+];
+
+app.get('/productos', (req, res, next) => {
+    res.render('productos');
+});
+
+
+app.get('/api/productos', (req, res, next) => {
+    res.send(products);
+});
+
+app.post('/api/pay', (req, res) => {
+    const ids = req.body;
+    const procutsCopy = products.map((p) => ({ ...p }));
+    ids.forEach((id) => {
+        const product = procutsCopy.find((p) => p.id === id);
+        if (product.stock > 0) {
+            product.stock--;
+        } else {
+            throw "Sin stock";
+        }
+
+    });
+    products = procutsCopy;
+    res.send(products);
+});
+
+
