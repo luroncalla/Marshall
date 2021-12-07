@@ -40,6 +40,9 @@
             <li class="nav-item">
               <a class="nav-link" href="/logout">Cerrar sesión</a>
             </li>
+            <li class="nav-item">
+              <button id="checkout" type="button" class="btn btn-dark" onclick="pay()" ><a href="/compra">Pagar</a></button>
+            </li>
             <% } else { %>
               <li class="nav-item">
                 <a class="nav-link" href="/">Inicio</a>
@@ -57,7 +60,7 @@
                 <a class="nav-link" href="/signin">Login</a>
               </li>
               <li class="nav-item">
-                <button id="checkout" type="button" class="btn btn-dark" onclick="pay()" >Pagar</button>
+                <button id="checkout" type="button" class="btn btn-dark" onclick="pay()" ><a href="/compra">Pagar</a></button>
               </li>
               <% } %>
         </ul>

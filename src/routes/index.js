@@ -44,7 +44,7 @@ router.get('/signin', (req, res, next) => { // ---- CON EL ROUTER.GET LE ENVIAMO
 
 
 router.post('/signin', passport.authenticate('local-signin', { // ---- ESCUCHA LOS DATOS QUE ENVIA EL USUARIO A TRAVES DEL MÉTODO POST Y VALIDAMOS ----
-    successRedirect: '/compra',
+    successRedirect: '/productos',
     failureRedirect: '/signin',
     passReqToCallback: true
 }));
@@ -105,6 +105,8 @@ router.get('/compra', isAuthenticated, (req, res, next) => {  // ---- IS AUTHENT
     res.render('compra');
 });
 
+
+
 // ---- MÉTODO QUE NOS PERMITE AUTENTICARNOS ----
 function isAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {  // ---- SI EL USUARIO ESTÁ AUTENTICADO, ENTONCES ES TRUE Y PUEDO IR A LA RUTA QUE VOY A ELEGIR ---- 
@@ -113,70 +115,6 @@ function isAuthenticated(req, res, next) {
     res.redirect('/signin');  // ----CASO CONTRARIO QUE ME REDIRECCIONE A LA PG. PRINCIPAL ----
 };
 
-
-
-// ---- TRAER LOS PRODUCTOS DESDE EL BACK-END ----
-
-// const products = [
-
-//     {
-//         id: 1,
-//         name: "Gafas Ray-Ban",
-//         price: 150,
-//         image: "/img/lentes.jpg",
-//         stock: 50
-//     },
-//     {
-//         id: 2,
-//         name: "Blusa Channel",
-//         price: 210,
-//         image: "/img/blusa.jpg",
-//         stock: 50
-//     },
-//     {
-//         id: 3,
-//         name: "Conjunto Oversize Widarly",
-//         price: 276,
-//         image: "/img/oversize.jpg",
-//         stock: 50
-//     },
-//     {
-//         id: 4,
-//         name: "Converse White Adidas",
-//         price: 300,
-//         image: "/img/converse.jpg",
-//         stock: 50
-//     },
-//     {
-//         id: 5,
-//         name: "Pantalon a cuadros Gucci",
-//         price: 255,
-//         image: "/img/pantalon.jpg",
-//         stock: 50
-//     },
-//     {
-//         id: 6,
-//         name: "Sombreo Negro Gucci",
-//         price: 120,
-//         image: "/img/sombrero.jpg",
-//         stock: 50
-//     },
-
-// ];
-
-// router.get('/productos', (req, res, next) => {
-//     res.render('productos');
-//   });
-
-
-// router.get('/api/productos', (req, res, next) => {
-//     res.send(products);
-// });
-
-// router.post('/api/pay', (req, res) => {
-//     console.log(req.body);
-//     res.send(products);
-// });
 
 
 module.exports = router;
