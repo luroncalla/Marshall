@@ -1,28 +1,69 @@
 let productList = [];
 let carrito = [];
 let total = 0;
+let order = {
+  items: []
+};
 
 function add(productId, price) {
-  const product = productList.find(p => p.id === productId);
+  const product = productList.find((p) => p.id === productId);
   product.stock--;
+
+  order.items.push(productList.find((p) => p.id === productId));
 
 
   console.log(productId, price);
   carrito.push(productId);
   total = total + price;
-  document.getElementById("checkout").innerHTML = `Pagar $${total}`
+  document.getElementById("checkout").innerHTML = `Carrito $${total}`;
   displayProducts();
 }
 
+async function showOrder() {
+  document.getElementById("product-cards").style.display = "none";
+  document.getElementById("order").style.display = "block";
+  document.getElementById("imagen-product").style.display = "none";
+  document.getElementById("order-total").innerHTML = `$${total}`;
+
+  let productsHTML = `
+  <tr>
+    <th>Cantidad</th>
+    <th>Detalle</th>
+    <th>Subtotal</th>
+  </tr>`
+    ;
+  order.items.forEach((p) => {
+    productsHTML += `<tr>
+          <td>1</td>
+          <td>${p.name}</td>
+          <td>$${p.price}</td>
+      </tr>`;
+  });
+
+  document.getElementById('order-table').innerHTML = productsHTML;
+}
+
+
+
 async function pay() {
   try {
-    const productList = await (await fetch('/api/pay', {
+    const preference = await (await fetch('/api/pay', {
       method: "post",
       body: JSON.stringify(carrito),
       headers: {
         "Content-Type": "application/json"
       }
     })).json();
+
+
+    var script = document.createElement("script");
+
+    script.src = "https://www.mercadopago.com.pe/integrations/v1/web-payment-checkout.js";
+    script.type = "text/javascript";
+    script.dataset.preferenceId = preference.preferenceId;
+    script.setAttribute("data-button-label", "Pagar con Mercado Pago");
+    document.getElementById("order-actions").innerHTML = "";
+    document.querySelector("#order-actions").appendChild(script);
 
   }
   catch {
@@ -31,8 +72,11 @@ async function pay() {
 
   carrito = [];
   total = 0;
-  await fetchProducts();
-  document.getElementById("checkout").innerHTML = `Pagar $${total}`
+  order = {
+    items: []
+  };
+  // await fetchProducts(); //renderiza a la pág luego de pagar
+  document.getElementById("checkout").innerHTML = `Carrito $${total}`
 }
 
 
@@ -41,6 +85,11 @@ async function pay() {
 
 // -------
 function displayProducts() {
+
+  document.getElementById("product-cards").style.display = "flex";
+  document.getElementById("order").style.display = "none";
+  document.getElementById("imagen-product").style.display = "block";
+
   let productsHTML = '';
   productList.forEach(p => {
     let buttonHTML = `<button type="button" class="btn btn-dark botonadd" onclick="add(${p.id},${p.price})" >Añadir</button>`;
@@ -61,7 +110,7 @@ function displayProducts() {
           </div>
         </div>`
   });
-  document.getElementById('page-content').innerHTML = productsHTML;
+  document.getElementById('product-cards').innerHTML = productsHTML;
 }
 
 
@@ -73,4 +122,4 @@ async function fetchProducts() {
 window.onload = async () => {
   await fetchProducts();
 
-}
+};

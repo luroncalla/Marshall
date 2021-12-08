@@ -13,20 +13,52 @@
 <body>
 
   <%- layout('layouts/main.ejs') %>
-
-    <div class="container-fluid">
-      <img src="/img/lo.jpg" class="img-fluid center" alt="Chica">
-    </div>
-
+        
+  
     <div class="container-fluid productos">
-      <div id="page-content" class="row row-productos row-cols-1 row-cols-md-3 g-4">
-        
-        
-        
+
+      <div id="page-content" >
+
+        <div class="container-fluid" id="imagen-product">
+          <img src="/img/lo.jpg" class="img-fluid center" alt="Chica">
+        </div>
+
+        <div id="order" class="order">
+          <h1>Orden:</h1>
+          <h2 id="order-total">Total: $150</h2>
+          <table id="order-table" class="order-table">
+            <tr>
+              <th>Cantidad</th>
+              <th>Detalle</th>
+              <th>Subtotal</th>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Pesas</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Banco ajustable</td>
+              <td>100</td>
+            </tr>
+          </table>
+
+          <div id="order-actions" class="order-actions">
+            <p onclick="displayProducts()"><< Volver</p>
+            <p onclick="pay()"> Confirmar >></p>
+          </div>
+        </div>
+
       </div>
 
+
+      <div id="product-cards" class="product-cards row row-productos row-cols-1 row-cols-md-3 g-4 container-fluid"></div>
+
+
       <div class="d-grid gap-2">
-        <button class="btn btn-primary boton" type="button"><a class="btn-black" href="/ofertas">Ver Ofertas</a></button>
+        <button class="btn btn-primary boton" type="button"><a class="btn-black" href="/ofertas">Ver
+            Ofertas</a></button>
       </div>
 
     </div>

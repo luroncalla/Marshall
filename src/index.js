@@ -9,6 +9,12 @@ const flash = require('connect-flash');
 const { applyRetryableWrites } = require('mongodb/lib/utils');
 const bodyParser = require("body-parser");
 const repository = require("../repository");
+const mercadopago = require('mercadopago');
+
+
+mercadopago.configure({
+    access_token: 'TEST-7809017788841989-120719-3eab4dff9063f235a29841d3b26f6e10-1034632905'
+});
 
 
 const app = express();
@@ -71,7 +77,7 @@ app.get('/productos', (req, res, next) => {
 });
 
 
-app.get('/api/productos', async(req, res, next) => {
+app.get('/api/productos', async (req, res, next) => {
     res.send(await repository.read());
 });
 
@@ -79,23 +85,47 @@ app.post('/api/pay', async (req, res) => {
     const ids = req.body;
     const productsCopy = await repository.read();
 
+    let preference = {
+        items: [],
+        back_urls: {
+            success: "http://localhost:3000/feedback",
+            failure: "http://localhost:3000/feedback",
+            pending: "http://localhost:3000/feedback",
+        },
+        auto_return: "approved",
+    };
+
+
     let error = false;
     ids.forEach((id) => {
         const product = productsCopy.find((p) => p.id === id);
         if (product.stock > 0) {
             product.stock--;
+            preference.items.push({
+                title: product.name,
+                unit_price: product.price,
+                quantity: 1,
+            });
         } else {
             error = true;
         }
     });
 
-    if(error) {
+    if (error) {
         res.send("Sin stock").statusCode(400);
     }
-    else{
+    else {
+        const response = await mercadopago.preferences.create(preference);
+        const preferenceId = response.body.id;
         await repository.write(productsCopy);
-        res.send(productsCopy);
+        res.send({ preferenceId });
     }
 });
 
-
+app.get('/feedback', function (request, response) {
+    response.json({
+        Payment: request.query.payment_id,
+        Status: request.query.status,
+        MerchantOrder: request.query.merchant_order_id
+    })
+});

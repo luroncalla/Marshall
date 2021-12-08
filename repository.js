@@ -6,9 +6,6 @@ const oAuth2Client = new google.auth.OAuth2(
   "urn:ietf:wg:oauth:2.0:oob"
 );
 
-oAuth2Client.setCredentials(
-
-);
 
 oAuth2Client.setCredentials({
   access_token:
