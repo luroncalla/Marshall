@@ -1,4 +1,4 @@
-<center> <h1>Marshall</h1> </center>
+<h1 align="center">Marshall</h1>
 
 
 Tienda Virtual de ropa
